@@ -8,8 +8,11 @@
     http://www.springframework.org/schema/context 
     http://www.springframework.org/schema/context/spring-context-3.1.xsd
 ">
-    <!--Esta bean ayuda a crear dependiendo de la clase que se le especifique -->
-    <bean id="myEmployee" class="com.company.models.Directory">
+    <!--Creación de la dependencia-->
+    <bean id="myReport" class="com.enterprise.models.Report"></bean>
 
+    <!--Este bean ayuda a crear dependiendo de la clase que se le especifique -->
+    <bean id="myEmployee" class="com.enterprise.models.Directory">
+        <constructor-arg ref="myReport"></constructor-arg>
     </bean>
 </beans>

@@ -1,6 +1,6 @@
-package com.company;
+package com.enterprise;
 
-import com.company.models.Employee;
+import com.enterprise.models.Employee;
 //import com.company.models.Directory; -> ya no necesitamos importarlo
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -17,6 +17,8 @@ public class Main {
         Employee Joan = ctx.getBean("myEmployee", Employee.class);
 
         System.out.println(Joan.getTasks());
+
+        System.out.println(Joan.getReport());
 
         ctx.close();
     }

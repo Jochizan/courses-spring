@@ -2,7 +2,7 @@ package com.enterprise.models;
 
 public interface Employee {
 
-    public String getTasks();
+    String getTasks();
 
-    public String getReport();
+    String getReport();
 }

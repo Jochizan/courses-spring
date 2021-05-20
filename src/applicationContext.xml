@@ -13,6 +13,22 @@
 
     <!--Este bean ayuda a crear dependiendo de la clase que se le especifique -->
     <bean id="myEmployee" class="com.enterprise.models.Directory">
+        <!--Inyección de dependencias con un constructor-->
         <constructor-arg ref="myReport"></constructor-arg>
+
+        <!--Inyección de campos-->
+        <property name="email" value="directory2015@company.com"></property>
+
+        <property name="companyName" value="Uncle Liquor"></property>
+    </bean>
+
+    <bean id="mySecretary" class="com.enterprise.models.Secretary">
+        <!--Inyección de dependencias con un método setter-->
+        <property name="newReport" ref="myReport"></property>
+
+        <!--Inyección de campos-->
+        <property name="email" value="remnyachizot2015@company.com"></property>
+        
+        <property name="companyName" value="Uncle Liquor"></property>
     </bean>
 </beans>

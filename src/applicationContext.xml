@@ -1,13 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:context="http://www.springframework.org/schema/context"
-    xsi:schemaLocation="
-    http://www.springframework.org/schema/beans   
-    http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
-    http://www.springframework.org/schema/context 
-    http://www.springframework.org/schema/context/spring-context-3.1.xsd
-">
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="
+            http://www.springframework.org/schema/beans
+            http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+            http://www.springframework.org/schema/context
+            http://www.springframework.org/schema/context/spring-context-3.1.xsd
+       "
+>
+    <!--Cargando los datos de la empresa-->
+    <context:property-placeholder location="classpath:dataEnterprise.properties"/>
     <!--Creación de la dependencia-->
     <bean id="myReport" class="com.enterprise.models.Report"></bean>
 
@@ -17,9 +20,9 @@
         <constructor-arg ref="myReport"></constructor-arg>
 
         <!--Inyección de campos-->
-        <property name="email" value="directory2015@company.com"></property>
+        <property name="email" value="${email}"></property>
 
-        <property name="companyName" value="Uncle Liquor"></property>
+        <property name="companyName" value="${companyName}"></property>
     </bean>
 
     <bean id="mySecretary" class="com.enterprise.models.Secretary">
@@ -28,7 +31,7 @@
 
         <!--Inyección de campos-->
         <property name="email" value="remnyachizot2015@company.com"></property>
-        
+
         <property name="companyName" value="Uncle Liquor"></property>
     </bean>
 </beans>

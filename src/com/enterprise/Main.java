@@ -15,7 +15,7 @@ public class Main {
 
         // Using Created Objects
         // System.out.println(boss.getTasks());
-        ClassPathXmlApplicationContext ctx = new ClassPathXmlApplicationContext("applicationContext.xml");
+        ClassPathXmlApplicationContext ctx = new ClassPathXmlApplicationContext("appContextOne.xml");
 
         /* Employee Joan = ctx.getBean("myEmployee", Employee.class); -> Primeras pruebas con Employee
 

@@ -1,6 +1,8 @@
 package com.enterprise.annotations;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 /**
@@ -12,9 +14,12 @@ import org.springframework.stereotype.Component;
  */
 
 @Component
+@Scope("prototype") // -> Nos ayuda a usar el diseño prototype para Spring
 public class ExperiencedCommercial implements Employee {
 
     @Autowired // -> Así tambien se puede inyectar dependencias
+    @Qualifier("fourQuarterFinancialReport") // -> Para indicarle a Spring de que clase que implemente
+    // ... la función de CreationFinancialReport debe usar
     private CreationFinancialReport newReport;
 
     public ExperiencedCommercial() {}

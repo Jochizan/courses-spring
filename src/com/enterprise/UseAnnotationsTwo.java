@@ -1,14 +1,20 @@
 package com.enterprise;
 
 import com.enterprise.annotations.Employee;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
+import com.enterprise.annotations.EmployeeSettings;
 
-public class AnnotationsSingProto {
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+
+public class UseAnnotationsTwo {
 
     public static void main(String[] args) {
 
         // Leer el xml de configuración
-        ClassPathXmlApplicationContext ctx = new ClassPathXmlApplicationContext("appContextAnnotations.xml");
+        // Ahora leemos la configuración desde un class
+        // ClassPathXmlApplicationContext ctx = new ClassPathXmlApplicationContext("appContextAnnotations.xml");
+
+        // Leer el class de configuración :nice:
+        AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext(EmployeeSettings.class);
 
 
         // Pedir un bean al contenedor
@@ -21,7 +27,7 @@ public class AnnotationsSingProto {
                 : "NO apuntan al mismo lugar de memoria"
         );
 
-        System.out.println(Joan +  "\n" + Luis);
+        System.out.println(Joan + "\n" + Luis);
 
         // Cerramos el contexto
         ctx.close();

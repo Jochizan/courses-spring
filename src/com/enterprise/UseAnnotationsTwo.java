@@ -1,8 +1,7 @@
 package com.enterprise;
 
-import com.enterprise.annotations.Employee;
+import com.enterprise.annotations.CFO;
 import com.enterprise.annotations.EmployeeSettings;
-
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 public class UseAnnotationsTwo {
@@ -18,6 +17,7 @@ public class UseAnnotationsTwo {
 
 
         // Pedir un bean al contenedor
+/*
         Employee Joan = ctx.getBean("experiencedCommercial", Employee.class);
         Employee Luis = ctx.getBean("experiencedCommercial", Employee.class);
 
@@ -28,6 +28,18 @@ public class UseAnnotationsTwo {
         );
 
         System.out.println(Joan + "\n" + Luis);
+*/
+/*
+        Employee employee = ctx.getBean("CFO", Employee.class);
+
+        System.out.println(employee.getTasks());
+        System.out.println(employee.getReport());
+*/
+        CFO cfo = ctx.getBean("CFO", CFO.class);
+
+        System.out.println("Email del director " + cfo.getEmail());
+        System.out.println("Nombre de la empresa " + cfo.getNameCompany());
+//        System.out.println(cfo.getNewFinancialReport());
 
         // Cerramos el contexto
         ctx.close();
